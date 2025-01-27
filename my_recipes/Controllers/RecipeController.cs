@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using my_recipes.Model;
 
 namespace my_recipes.Controllers
@@ -9,24 +10,39 @@ namespace my_recipes.Controllers
     [ApiController]
     public class RecipeController : ControllerBase
     {
-        private static List<Recipe> recipes = new List<Recipe>
-    {
-        new Recipe { Id = 1, Title = "Flan", Description="Almost like Crème brûlée", Category="Dessert", Cuisine="Cuba", PreparationTime= 15, CookingTime=60, Servings= 10, Difficulty= "easy", CostRange = 100 },
-    };
+        private readonly AppDbContext _context;
 
-        [HttpGet]
-        public ActionResult<IEnumerable<Recipe>> Get()
+        public RecipeController(AppDbContext context)
         {
-            return Ok(recipes);
+            _context = context;
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<Recipe> Get(int id)
+        // GET: api/recipes
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes()
         {
-            var recipe = recipes.FirstOrDefault(p => p.Id == id);
+            return await _context.Recipes.ToListAsync();
+        }
+
+        // GET: api/recipes/1
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Recipe>> GetRecipe(int id)
+        {
+            var recipe = await _context.Recipes.FindAsync(id);
             if (recipe == null)
+            {
                 return NotFound();
-            return Ok(recipe);
+            }
+            return recipe;
+        }
+
+        // POST: api/recipes
+        [HttpPost]
+        public async Task<ActionResult<Recipe>> PostProduct(Recipe recipe)
+        {
+            _context.Recipes.Add(recipe);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetRecipe), new { id = recipe.Id }, recipe);
         }
     }
 }
