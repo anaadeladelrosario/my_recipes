@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 using my_recipes.Models;
 
 namespace my_recipes.Model
@@ -49,5 +50,18 @@ namespace my_recipes.Model
         public ICollection<Ingredient> Ingredients { get; set; } = []; // List of ingredients
         public ICollection<Instruction> Instructions { get; set; } = []; // List of instructions
 
+        [IgnoreDataMember]
+        public string CategoryName => Category.ToString();
+    }
+}
+
+
+namespace my_recipes.Model
+{
+    public class RecipeResponseDto
+    {
+        public int Id { get; set; }
+        public required string Title { get; set; }
+        public required string Category { get; set; }
     }
 }
