@@ -23,21 +23,15 @@ namespace my_recipes
 
             // Configure the one-to-many relationship
             modelBuilder.Entity<Recipe>()
-                .HasMany(r => r.Ingredients) // A recipe has many ingredients
-                .WithOne(i => i.Recipe) // An ingredient belongs to one recipe
-                .HasForeignKey(i => i.RecipeId); // Foreign key in Ingredient
+                .HasMany(r => r.Ingredients); // A recipe has many ingredients
 
             // Configure one-to-many relationship between Recipe and Instruction
             modelBuilder.Entity<Recipe>()
-                .HasMany(r => r.Instructions)
-                .WithOne(i => i.Recipe)
-                .HasForeignKey(i => i.RecipeId);
+                .HasMany(r => r.Instructions);
 
             // Configure many-to-many relationship between Recipe and Tag
             modelBuilder.Entity<Recipe>()
-                .HasMany(r => r.Tags)
-                .WithMany(t => t.Recipes)
-                .UsingEntity(j => j.ToTable("RecipeTags")); // Join table name
+                .HasMany(r => r.Tags);
         }
     }
 }
