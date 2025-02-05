@@ -66,11 +66,31 @@ namespace my_recipes.Controllers
 
         // POST: api/recipes
         [HttpPost]
-        public async Task<ActionResult<Recipe>> PostProduct(Recipe recipe)
+        public async Task<ActionResult<Recipe>> PostRecipe(Recipe recipe)
         {
             _context.Recipes.Add(recipe);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetRecipe), new { id = recipe.Id }, recipe);
+        }
+
+        // DELETE: api/recipes/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteRecipe(int id)
+        {
+            // Find the recipe by id
+            var recipe = await _context.Recipes.FindAsync(id);
+            if (recipe == null)
+            {
+                // If recipe is not found, return 404 (Not Found)
+                return NotFound();
+            }
+
+            // Remove the recipe from the list (simulating deletion from a database)
+            _context.Recipes.Remove(recipe);
+            await _context.SaveChangesAsync(); // Save changes asynchronously to persist deletion
+
+            // Return status 200 OK with a success message
+            return Ok(new { message = "Recipe deleted successfully" });
         }
     }
 }
