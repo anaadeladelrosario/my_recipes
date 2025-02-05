@@ -1,5 +1,7 @@
 # My Recipes Project
 
+**************Obs!!! Work in Progress***********************
+
 ## Overview
 A comprehensive personal recipe management application with a robust C# backend and modern web API architecture.
 
