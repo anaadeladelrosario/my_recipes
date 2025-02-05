@@ -12,8 +12,8 @@ using my_recipes;
 namespace my_recipes.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250205114519_CategoryClass")]
-    partial class CategoryClass
+    [Migration("20250205133234_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,17 +40,19 @@ namespace my_recipes.Migrations
                     b.Property<int>("CookingTime")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CostRange")
-                        .HasColumnType("int");
+                    b.Property<string>("CostRange")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Cuisine")
-                        .HasColumnType("int");
+                    b.Property<string>("Cuisine")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Difficulty")
-                        .HasColumnType("int");
+                    b.Property<string>("Difficulty")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsVegetarian")
                         .HasColumnType("bit");

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace my_recipes.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalCreate : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,33 +19,19 @@ namespace my_recipes.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Category = table.Column<int>(type: "int", nullable: false),
-                    Cuisine = table.Column<int>(type: "int", nullable: false),
+                    Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cuisine = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PreparationTime = table.Column<int>(type: "int", nullable: false),
                     CookingTime = table.Column<int>(type: "int", nullable: false),
                     Servings = table.Column<int>(type: "int", nullable: false),
-                    Difficulty = table.Column<int>(type: "int", nullable: false),
-                    CostRange = table.Column<int>(type: "int", nullable: true),
+                    Difficulty = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CostRange = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsVegetarian = table.Column<bool>(type: "bit", nullable: false),
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Recipes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Tags",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TagName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tags", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -95,27 +81,23 @@ namespace my_recipes.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RecipeTags",
+                name: "Tags",
                 columns: table => new
                 {
-                    RecipesId = table.Column<int>(type: "int", nullable: false),
-                    TagsId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TagName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RecipeId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RecipeTags", x => new { x.RecipesId, x.TagsId });
+                    table.PrimaryKey("PK_Tags", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RecipeTags_Recipes_RecipesId",
-                        column: x => x.RecipesId,
+                        name: "FK_Tags_Recipes_RecipeId",
+                        column: x => x.RecipeId,
                         principalTable: "Recipes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RecipeTags_Tags_TagsId",
-                        column: x => x.TagsId,
-                        principalTable: "Tags",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -129,9 +111,9 @@ namespace my_recipes.Migrations
                 column: "RecipeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RecipeTags_TagsId",
-                table: "RecipeTags",
-                column: "TagsId");
+                name: "IX_Tags_RecipeId",
+                table: "Tags",
+                column: "RecipeId");
         }
 
         /// <inheritdoc />
@@ -144,13 +126,10 @@ namespace my_recipes.Migrations
                 name: "Instructions");
 
             migrationBuilder.DropTable(
-                name: "RecipeTags");
+                name: "Tags");
 
             migrationBuilder.DropTable(
                 name: "Recipes");
-
-            migrationBuilder.DropTable(
-                name: "Tags");
         }
     }
 }
