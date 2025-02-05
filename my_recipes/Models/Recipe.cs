@@ -4,30 +4,6 @@ using my_recipes.Models;
 
 namespace my_recipes.Model
 {
-    public enum Category
-    {
-        Appetizer,
-        MainCourse,
-        Dessert,
-        Snack
-    }
-    public enum Difficulty
-    {
-        Easy,
-        Medium,
-        Hard
-    }
-    public enum Cuisine
-    {
-        Australian,
-        Brazilian,
-        Chinenese,
-        Cuban,
-        Italian,
-        Japanese,
-        Spanish,
-        Swedish
-    }
     public class Recipe
     {
         [Key]
@@ -36,14 +12,14 @@ namespace my_recipes.Model
         public required string Title { get; set; }
         public string? Description { get; set; }
         [Required]
-        public required Category Category { get;set; }
+        public required string Category { get;set; }
         [Required]
-        public required Cuisine Cuisine { get; set; }
+        public required string Cuisine { get; set; }
         public int PreparationTime { get; set; }
         public int CookingTime { get; set; }
         public int Servings { get; set; }
-        public required Difficulty Difficulty { get; set; }
-        public  int? CostRange { get; set; }
+        public required string Difficulty { get; set; }
+        public  string? CostRange { get; set; }
         public bool IsVegetarian { get; set; } // Whether the recipe is vegetarian
         public string? Notes { get; set; } // Additional notes
         public ICollection<Tag>? Tags { get; set; } = []; // Tags (e.g., Vegetarian, Gluten-Free)
