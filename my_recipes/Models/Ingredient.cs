@@ -19,6 +19,5 @@ namespace my_recipes.Models
                                                  // Foreign key property
 
         public int RecipeId { get; set; }  // Foreign key to Recipe
-        public Recipe? Recipe { get; set; }  // Navigation property to Recipe
     }
 }

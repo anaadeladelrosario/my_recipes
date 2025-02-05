@@ -10,6 +10,5 @@ namespace my_recipes.Models
         public int Id { get; set; }
         public required string TagName { get; set; }
         public DateTime CreatedDate { get; set; }
-        public List<Recipe>? Recipes { get; set; }  // Navigation property
     }
 }
