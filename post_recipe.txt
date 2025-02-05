@@ -1,166 +1,87 @@
 {
-  "id": 5,
   "title": "Classic Cheese Omelette",
   "description": "A simple and delicious cheese omelette perfect for breakfast or a quick meal.",
-  "category": 1,
-  "categoryName":"Breakfast",
-  "cuisine": 3,
+  "category": "MainCourse",
+  "cuisine": "Italian",
   "preparationTime": 5,
   "cookingTime": 5,
   "servings": 1,
-  "difficulty": 1,
-  "isVegetarian": true,
-  "notes": "You can add vegetables like bell peppers, onions, or mushrooms for extra flavor.",
-  "ingredients": [
-    {
-      "id": 36,
-      "name": "Eggs",
-      "quantity": 2,
-      "unit": "pieces",
-      "optional": false,
-      "preparation": "beaten",
-      "recipeId": 5,
-      "recipe": "Classic Cheese Omelette"
-    },
-    {
-      "id": 37,
-      "name": "Cheese",
-      "quantity": 30,
-      "unit": "grams",
-      "optional": false,
-      "preparation": "grated",
-      "recipeId": 5,
-      "recipe": "Classic Cheese Omelette"
-    },
-    {
-      "id": 38,
-      "name": "Butter",
-      "quantity": 10,
-      "unit": "grams",
-      "optional": false,
-      "preparation": "melted",
-      "recipeId": 5,
-      "recipe": "Classic Cheese Omelette"
-    },
-    {
-      "id": 39,
-      "name": "Salt",
-      "quantity": 1,
-      "unit": "pinch",
-      "optional": true,
-      "preparation": "to taste",
-      "recipeId": 5,
-      "recipe": "Classic Cheese Omelette"
-    },
-{
-  "id": 5,
-  "title": "Classic Cheese Omelette",
-  "description": "A simple and delicious cheese omelette perfect for breakfast or a quick meal.",
-  "category": 1,
-  "cuisine": 3,
-  "preparationTime": 5,
-  "cookingTime": 5,
-  "servings": 1,
-  "difficulty": 1,
+  "difficulty": "Easy",
   "isVegetarian": true,
   "notes": "You can add vegetables like bell peppers, onions, or mushrooms for extra flavor.",
   "categoryName":"MainCourse",
   "ingredients": [
     {
-      "id": 36,
       "name": "Eggs",
       "quantity": 2,
-      "unit": "pieces",
+      "unit": "cup",
       "optional": false,
-      "preparation": "beaten",
-      "recipeId":5
+      "preparation": "beaten"
     },
     {
-      "id": 37,
       "name": "Cheese",
       "quantity": 30,
-      "unit": "grams",
+      "unit": "g",
       "optional": false,
-      "preparation": "grated",
-      "recipeId":5
+      "preparation": "grated"
     },
     {
-      "id": 38,
       "name": "Butter",
       "quantity": 10,
-      "unit": "grams",
+      "unit": "g",
       "optional": false,
-      "preparation": "melted",
-      "recipeId":5
+      "preparation": "melted"
     },
     {
-      "id": 39,
       "name": "Salt",
       "quantity": 1,
       "unit": "pinch",
       "optional": true,
-      "preparation": "to taste",
-      "recipeId":5
+      "preparation": "to taste"
     },
     {
-      "id": 40,
       "name": "Pepper",
       "quantity": 1,
       "unit": "pinch",
       "optional": true,
-      "preparation": "to taste",
-      "recipeId":5
+      "preparation": "to taste"
     }
   ],
   "instructions": [
     {
-      "id": 33,
       "step": 1,
       "description": "Crack the eggs into a bowl, add a pinch of salt and pepper, and beat them until fully mixed.",
-      "image": "step1.jpg",
-      "recipeId":5
+      "image": "step1.jpg"
     },
     {
-      "id": 34,
       "step": 2,
       "description": "Heat a non-stick frying pan over medium heat and add the butter, allowing it to melt and coat the pan.",
-      "image": "step2.jpg",
-      "recipeId":5
+      "image": "step2.jpg"
     },
     {
-      "id": 35,
       "step": 3,
       "description": "Pour the beaten eggs into the pan and let them cook undisturbed for a few seconds until the edges start to set.",
-      "image": "step3.jpg",
-      "recipeId":5
+      "image": "step3.jpg"
     },
     {
-      "id": 36,
       "step": 4,
       "description": "Gently lift the edges of the omelette with a spatula and tilt the pan to let the uncooked eggs flow underneath.",
-      "image": "step4.jpg",
-      "recipeId":5
+      "image": "step4.jpg"
     },
     {
-      "id": 37,
       "step": 5,
       "description": "Sprinkle the grated cheese evenly over one half of the omelette.",
-      "image": "step5.jpg",
-      "recipeId":5
+      "image": "step5.jpg"
     },
     {
-      "id": 38,
       "step": 6,
       "description": "Fold the omelette in half with the spatula and cook for another 30 seconds to melt the cheese.",
-      "image": "step6.jpg",
-      "recipeId":5
+      "image": "step6.jpg"
     },
     {
-      "id": 39,
       "step": 7,
       "description": "Slide the omelette onto a plate and serve immediately.",
-      "image": "step7.jpg",
-      "recipeId":5
+      "image": "step7.jpg"
     }
   ]
 }
