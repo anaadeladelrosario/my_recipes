@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using my_recipes.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace my_recipes.Controllers
 {
@@ -71,6 +72,41 @@ namespace my_recipes.Controllers
             _context.Recipes.Add(recipe);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetRecipe), new { id = recipe.Id }, recipe);
+        }
+
+        // PUT: api/recipes/1
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutRecipe(int id, Recipe updatedRecipe)
+        {
+            // Find the existing recipe asynchronously
+            var existingRecipe = await _context.Recipes.FindAsync(id);
+            if (existingRecipe == null)
+            {
+                return NotFound("Recipe not found.");
+            }
+
+            // Update the recipe properties with the new values
+            existingRecipe.Title = updatedRecipe.Title;
+            existingRecipe.Description = updatedRecipe.Description;
+            existingRecipe.Category = updatedRecipe.Category;
+            existingRecipe.Cuisine = updatedRecipe.Cuisine;   
+            existingRecipe.PreparationTime = updatedRecipe.PreparationTime;
+            existingRecipe.Servings = updatedRecipe.Servings;
+            existingRecipe.Notes = updatedRecipe.Notes;
+            existingRecipe.CostRange = updatedRecipe.CostRange;
+            existingRecipe.CookingTime = updatedRecipe.CookingTime;
+            existingRecipe.Difficulty = updatedRecipe.Difficulty;
+            existingRecipe.Instructions = updatedRecipe.Instructions;
+            existingRecipe.Ingredients = updatedRecipe.Ingredients;
+            existingRecipe.Tags = updatedRecipe.Tags;
+            existingRecipe.IsVegetarian = updatedRecipe.IsVegetarian;
+
+
+            // Save the changes asynchronously to the database
+            await _context.SaveChangesAsync();
+
+            // Return a success response with the updated recipe data
+            return Ok(existingRecipe);
         }
 
         // DELETE: api/recipes/5
