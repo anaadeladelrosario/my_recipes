@@ -3,13 +3,9 @@
 **************Obs!!! Work in Progress***********************
 
 ## Overview
-A comprehensive personal recipe management application with a robust C# backend and modern web API architecture.
+A comprehensive personal recipe management application with a C# backend and modern web API architecture.
 
-![Recipe Index](mobile-main.PNG)
-![Recipe Menu Mobile](mobile-menu.PNG)
-![Recipe Menu Desktop](Desktop-menu.PNG)
-![Recipe Form Desktop](Desktop-Form.PNG)
-
+![Recipe Journey](product.PNG)
 
 
 
