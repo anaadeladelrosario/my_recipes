@@ -5,15 +5,11 @@
 ## Overview
 A comprehensive personal recipe management application with a robust C# backend and modern web API architecture.
 
-![Recipe View UI](recipeView.png)
-![Recipe Index UI](recipeIndex.png)
-
-##New iteration
-
 ![Recipe Index](mobile-main.PNG)
 ![Recipe Menu Mobile](mobile-menu.PNG)
-![Recipe Menu Desktop](desktop-menu.PNG)
-![Recipe Form Desktop](desktop-Form.PNG)
+![Recipe Menu Desktop](Desktop-menu.PNG)
+![Recipe Form Desktop](Desktop-Form.PNG)
+
 
 
 
