@@ -5,7 +5,7 @@
 ## Overview
 A comprehensive personal recipe management application with a C# backend and modern web API architecture.
 
-![Recipe Journey](product.PNG)
+![Recipe Journey](product.png)
 
 
 
